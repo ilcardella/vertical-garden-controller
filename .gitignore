@@ -1,0 +1,6 @@
+*~
+.vscode
+*.hex
+*.elf
+build/
+_build/
