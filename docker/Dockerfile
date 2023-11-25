@@ -15,14 +15,14 @@ RUN apt-get update \
 
 # Keep PICO_SDK_PATH persistent in the image
 ENV PICO_SDK_PATH=/opt/pico-sdk
-ARG PICO_SDK_VERSION=1.5.0
+ARG PICO_SDK_VERSION=master
 RUN git clone --depth 1 --branch ${PICO_SDK_VERSION} \
     https://github.com/raspberrypi/pico-sdk \
     ${PICO_SDK_PATH} \
     && git -C ${PICO_SDK_PATH} submodule update --init
 # Clone also the PICO_EXTRAS library
 ENV PICO_EXTRAS_PATH=/opt/pico-extras
-ARG PICO_EXTRAS_VERSION=sdk-${PICO_SDK_VERSION}
+ARG PICO_EXTRAS_VERSION=${PICO_SDK_VERSION}
 RUN git clone --depth 1 --branch ${PICO_EXTRAS_VERSION} \
     https://github.com/raspberrypi/pico-extras \
     ${PICO_EXTRAS_PATH} \
