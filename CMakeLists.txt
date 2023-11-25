@@ -7,17 +7,13 @@ include($ENV{PICO_EXTRAS_PATH}/external/pico_extras_import.cmake)
 
 project(vertical-garden-controller LANGUAGES C CXX ASM)
 
-set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_EXTENSIONS OFF)
-
 pico_sdk_init()
 
 add_executable(${PROJECT_NAME})
 target_sources(${PROJECT_NAME} PRIVATE src/main.cpp
 )
 target_include_directories(${PROJECT_NAME} PRIVATE include)
-
+target_compile_features(${PROJECT_NAME} PUBLIC cxx_std_17)
 target_link_libraries(${PROJECT_NAME}
                         pico_stdlib
                         hardware_sleep

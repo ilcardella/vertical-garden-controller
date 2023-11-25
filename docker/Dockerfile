@@ -15,7 +15,7 @@ RUN apt-get update \
 
 # Keep PICO_SDK_PATH persistent in the image
 ENV PICO_SDK_PATH=/opt/pico-sdk
-ARG PICO_SDK_VERSION=1.5.0
+ARG PICO_SDK_VERSION=1.5.1
 RUN git clone --depth 1 --branch ${PICO_SDK_VERSION} \
     https://github.com/raspberrypi/pico-sdk \
     ${PICO_SDK_PATH} \
